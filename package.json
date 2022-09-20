@@ -1,0 +1,8 @@
+{
+  "name": "system_test",
+  "private": true,
+  "dependencies": {
+    "devise": "^1.0.9",
+    "faker": "^6.6.6"
+  }
+}
