@@ -2,7 +2,10 @@
   "name": "system_test",
   "private": true,
   "dependencies": {
+    "bootstrap": "^5.2.1",
     "devise": "^1.0.9",
-    "faker": "^6.6.6"
+    "faker": "^6.6.6",
+    "jquery": "^3.6.1",
+    "popper.js": "^1.16.1"
   }
 }
