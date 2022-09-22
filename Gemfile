@@ -28,7 +28,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # GEMS ADD
-gem 'devise'
 gem 'rails-i18n'
 gem 'faker'
 gem 'tty-spinner'
