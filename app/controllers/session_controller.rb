@@ -1,16 +1,19 @@
 class SessionController < ApplicationController
   include SessionHelper
-  before_action :block_access, except: [:destroy]
+  before_action :block_access, except: [:logout]
 
   def index
     @users = User.all
   end
 
-  def sign
+  def create
     @user = User.find_by(phone: params[:phone])
-    unless @user.nil?
-      sign_in()
+    if !(@user.nil?)
+      sign_in
       redirect_to @user
+    else
+      current_user = nil
+      redirect_to root_url, notice: "Erro, login não encontrado"
     end
   end
 
@@ -19,5 +22,4 @@ class SessionController < ApplicationController
     current_user = nil
     redirect_to root_url
   end
-
 end

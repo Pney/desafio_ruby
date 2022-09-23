@@ -13,16 +13,6 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-dark bg-dark justify-content-end">
-      <%# <div class="navbar-item ">
-        <%= link_to "Logout", user_path(current_user), method: :delete, class:"navbar-brand"
-      </div> %>
-
-      <div class="navbar-item ">
-        <%= link_to "Usúario: #{current_user.name_user}", user_path(current_user), class:"navbar-brand" %>
-      </div>
-    </nav>
-    </nav>
     <%= yield %>
   </body>
 </html>

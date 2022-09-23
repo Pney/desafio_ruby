@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SystemTest</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%# <%= stylesheet_link_tag    params[:controller], media: 'all', 'data-turbolinks-track': 'reload' %>
+  
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%# <%= javascript_include_tag params[:controller], 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark bg-dark justify-content-end">
+       <div class="navbar-item ">
+         <%= link_to "Logout", session_path(current_user), method: :delete, class:"navbar-brand" %>
+      </div>
+
+      <div class="navbar-item ">
+        <%= link_to "Usúario: #{current_user.name_user}", user_path(current_user), class:"navbar-brand" %>
+      </div>
+    </nav>
+
+    <%= yield %>
+  </body>
+</html>
