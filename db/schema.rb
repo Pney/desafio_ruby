@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_20_162915) do
+ActiveRecord::Schema.define(version: 2022_09_26_122037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "log_logins", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_log_logins_on_user_id"
+  end
+
+  create_table "to_dos", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name_user", null: false
@@ -24,6 +37,8 @@ ActiveRecord::Schema.define(version: 2022_09_20_162915) do
     t.string "profile", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_profile"
   end
 
+  add_foreign_key "log_logins", "users"
 end

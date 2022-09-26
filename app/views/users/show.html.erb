@@ -1,28 +1,77 @@
 <p id="notice"><%= notice %></p>
+<div class="col-lg-8" style="margin-left: auto; margin-right: auto;">
+  <div class="card mb-4">
+    <div class="rounded-top d-flex flex-row color" style=" height:200px;">
+      <h2 class><%= " Perfil: #{current_user.name_user} "%></h2>
+      <div class="ms-4 mt-5 d-flex flex-column">
+        <%= image_tag current_user.image_profile, size: "180x180", class: "mt-4 mb-2 circle-image center-middle" %>
+        <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-dark button-middle-end", style: "width: 150px"%>
+        <%= link_to 'Back', user_profile_path, class: "btn btn-dark button-middle-start", style: "width: 150px"%>
+      </div>
+    </div>
+    <div class="card-body justify-content-center align-items-center">
+      <div class="row" style="margin-top: 32px">
+        <div class="col-sm-3">
+          <p class="mb-0">Nome Usuario</p>
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0">  <%= current_user.name_user %> </p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-3">
+          <p class="mb-0">Email</p>
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0">   <%= current_user.email %>  </p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-3">
+          <p class="mb-0">Fone</p>
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0"> <%= current_user.phone %> </p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-3">
+          <p class="mb-0">CPF</p>
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0">  <%= current_user.cpf %> </p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-3">
+          <p class="mb-0">Genero</p>
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0">   <%= current_user.gender %> </p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-3">
+          <p class="mb-0">Perfil</p>
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0">     <%= current_user.profile %> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<table class="table table-hover table-bordered border-secondary">
-  <thead class="table-dark margin-left">
-    <tr>
-      <th>Name user</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Cpf</th>
-      <th>Gender</th>
-      <th>Profile</th>
-    </tr>
-  </thead>
+</div>
 
-  <tbody>
-    <tr>
-      <td><%= current_user.name_user %></td>
-      <td><%= current_user.email %></td>
-      <td><%= current_user.phone %></td>
-      <td><%= current_user.cpf %></td>
-      <td><%= current_user.gender %></td>
-      <td><%= current_user.profile %></td>
-    </tr>
-  </tbody>
-</table>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+
+
+
+
+

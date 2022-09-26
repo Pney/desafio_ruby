@@ -16,7 +16,8 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 
 #app/assets
-Rails.application.config.assets.precompile += %w( undraw_projections_re_ulc6.svg)
+Rails.application.config.assets.precompile += %w( undraw_projections_re_ulc6.svg user_profile.css
+session.scss users.scss)
 
 #lib/assets
 # Rails.application.config.assets.precompile += %w( undraw_projections_re_ulc6.svg)

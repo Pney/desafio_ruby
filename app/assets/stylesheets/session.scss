@@ -1,3 +1,27 @@
 // Place all the styles related to the session controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+    background-color: black;
+}
+
+.login-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.5)
+    border-box;
+    box-shadow: 0 15px 25px rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+}
+
+.login-box h2{
+    margin: 0 0 30px;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+}
