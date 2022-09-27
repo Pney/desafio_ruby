@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   include SessionHelper
   before_action :set_user, only: %i[ show edit update destroy ]
-  before_action :block_access, except: [:create]
-  layout 'users_backoffice'
+  before_action :block_access, except: %i[create new]
+  layout :choose_layout
 
   # GET /users or /users.json
   def index
@@ -69,5 +69,9 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:name_user, :email, :phone, :cpf, :gender, :profile, :image_profile)
+    end
+
+    def choose_layout
+      params[:action] == "new" || "create" ? "application" : "users_backoffice"
     end
 end
