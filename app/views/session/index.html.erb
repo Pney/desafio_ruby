@@ -1,12 +1,14 @@
-<div class="login-box">
-  
-  <% if notice %>
+<% if notice %>
+  <div class="alert alert-primary" role="alert">
     <%= notice %>
-  <% end %>
-  
+  </div>
+<% end %>
+
+<div class="login-box">  
   <%= render 'sign' %>
 </div>
   
 <div>
-  <%= link_to 'Novo usuario', new_user_path, class:"btn btn-primary" %>
+
+  <%= link_to 'Não tem uma conta?', new_user_path, class:"btn btn-primary button-end-middle" %>
 </div>

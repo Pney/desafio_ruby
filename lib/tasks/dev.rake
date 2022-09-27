@@ -23,9 +23,11 @@ namespace :dev do
 # :cpf
 # :gender
 # :profile
+
   desc "Criando Usuário Padrão"
   task add_default_user: :environment do
     User.create!(
+      image_profile: "https://img.favpng.com/12/4/25/computer-icons-user-profile-png-favpng-10C0GAGPe8VAE2aMsjYNXJtne.jpg",
       name_user: "Faker",
       email: 'user@teste.com',
       phone: '45999999999',
@@ -48,6 +50,7 @@ namespace :dev do
   task add_extra_user: :environment do
     10.times do
       User.create!(
+        image_profile: "https://img.favpng.com/12/4/25/computer-icons-user-profile-png-favpng-10C0GAGPe8VAE2aMsjYNXJtne.jpg",
         name_user: Faker::Name.name,
         email: Faker::Internet.email,
         phone: Faker::PhoneNumber.cell_phone_in_e164,
