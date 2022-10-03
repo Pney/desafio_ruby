@@ -15,6 +15,7 @@
  *= require user_profile
  *= require session 
  *= require users
+ *= require to_dos
  */
 
 
@@ -75,6 +76,13 @@
     border-radius: 50%;
     filter: drop-shadow(0 0 3px #000)
 }
+
+.field_with_errors {
+    padding: 2px;
+    background-color: red;
+    display: table;
+}
+
 .circle-image img {
     width: 100%;
     height: 100%;

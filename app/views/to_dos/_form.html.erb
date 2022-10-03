@@ -4,14 +4,50 @@
       <h2><%= pluralize(to_do.errors.count, "error") %> prohibited this to_do from being saved:</h2>
 
       <ul>
-      <% to_do.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% to_do.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
+  <div class="form-group">
+    <%= form.label :uni_code %>
+    <%= form.text_field :uni_code, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_field :description, class: "form-control" %>
+  </div>  
+
+  <div class="form-group">
+    <%= form.label :category %>
+    <%= form.select :category, ['Front', 'Back', 'Support'], class: "form-control" %>
+  </div>
+  
+
+  <div class="form-group">
+    <%= form.label :public_permission %>
+    <%= form.check_box(:public_permission) %>
+  </div>
+
+  <div class="form-group">
+    <% status = find_status(params[:status_list]) %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+    <%= form.hidden_field :status_list_id, value: status.id %>
+  </div>
+
+
+  
   <div class="actions">
-    <%= form.submit %>
+
+    <%= form.submit nil, class: "btn btn-success"%>
   </div>
 <% end %>
+

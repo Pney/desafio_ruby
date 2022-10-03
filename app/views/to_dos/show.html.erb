@@ -1,4 +1,64 @@
 <p id="notice"><%= notice %></p>
+<div class="col-lg-8" style="margin-left: auto; margin-right: auto;">
+  <div class="card mb-4">
+    <div class="card-body justify-content-center align-items-center">
+      <div class="row" style="margin-top: 32px">
+        <div class="col-sm-3">
+          <p class="mb-0">Nome do Usuario</p>
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0">  <%= @to_do.user.name_user %> </p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-3">
+          <p class="mb-0">Titulo</p>
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0">   <%= @to_do.title %>  </p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-3">
+          <p class="mb-0">Descrição</p>
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0"> <%= @to_do.description %> </p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-3">
+          <p class="mb-0">Categoria</p>
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0">  <%= @to_do.category %> </p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-3">
+          <p class="mb-0">Status</p>
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0">   <%= @to_do.status_list.title %> </p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-sm-3">
+          <p class="mb-0">Permissão Publica</p>
+        </div>
+        <div class="col-sm-9">
+          <p class="text-muted mb-0">     <%= @to_do.public_permission %> </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_to_do_path(@to_do) %> |
-<%= link_to 'Back', to_dos_path %>
+</div>
+
+<%= link_to 'Back', to_dos_index_path,  class: "btn btn-dark button-end-middle-80", style: "width: 30%" %>

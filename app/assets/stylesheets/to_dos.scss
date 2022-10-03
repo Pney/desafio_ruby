@@ -1,3 +1,83 @@
 // Place all the styles related to the to_dos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body{
+    background-color: rgb(206, 191, 191) !important;
+}
+
+menu{
+    background-color: #161616;
+    border-radius: 7%;
+    color: azure;
+    width: 300px;
+    text-align: center;
+    padding: 0px;
+}
+
+ul{
+    width: 150px;
+    display: table-cell;
+}
+
+.bi-plus-circle{
+    display: block;
+}
+
+ol{
+    padding: 0px;
+    width: 300px;
+}
+
+h5{
+    word-break: break-word;
+    padding: 5px;
+}
+
+p{
+    word-break: break-word;
+    padding: 8px;
+}
+
+h4{
+    text-align: center;
+    padding: 5px;
+}
+// td{
+//     display: inline;
+// }
+
+.button-end-middle-80{
+    display: block;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.container {
+    display: inline-table;
+    width: 250px !important;
+    height: 500px !important;
+    padding: 10px;
+    color: white;
+    background: #161616;
+    text-align: center;
+    margin-left: 65px;
+    margin-right: 65px;
+    border: 1px solid rgba(0, 0, 0, .05);
+}
+
+.container-item {
+    display: inline-table;
+    width: 250px !important;
+    height: 250px !important;
+    padding: 10px;
+    color: white;
+    background: #161616;
+    text-align: center;
+    margin-left: 65px;
+    margin-right: 65px;
+    border: 1px solid rgba(0, 0, 0, .05);
+}

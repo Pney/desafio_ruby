@@ -10,22 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_26_122037) do
+ActiveRecord::Schema.define(version: 2022_09_30_142057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "log_logins", force: :cascade do |t|
-    t.string "title"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_log_logins_on_user_id"
   end
 
-  create_table "to_dos", force: :cascade do |t|
+  create_table "status_lists", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_status_lists_on_user_id"
+  end
+
+  create_table "to_dos", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "uni_code"
+    t.string "title"
+    t.text "description"
+    t.string "category"
+    t.boolean "public_permission"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "status_list_id"
+    t.index ["status_list_id"], name: "index_to_dos_on_status_list_id"
+    t.index ["user_id"], name: "index_to_dos_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,4 +57,7 @@ ActiveRecord::Schema.define(version: 2022_09_26_122037) do
   end
 
   add_foreign_key "log_logins", "users"
+  add_foreign_key "status_lists", "users"
+  add_foreign_key "to_dos", "status_lists"
+  add_foreign_key "to_dos", "users"
 end

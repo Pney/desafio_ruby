@@ -19,9 +19,21 @@ body{
     border-radius: 12px;
 }
 
+.button-end-middle{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
 .login-box h2{
     margin: 0 0 30px;
     padding: 20px;
     color: #fff;
     text-align: center;
+}
+
+.alert{
+    width: 200px;
+    height: 80px;
 }

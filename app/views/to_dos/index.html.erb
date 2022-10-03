@@ -1,25 +1,68 @@
 <p id="notice"><%= notice %></p>
 
-<h1>To Dos</h1>
+<h1>
+  List To Dos
+  <%= link_to to_dos_index_path(@filtera), method: "post", notice: "Filtrando por #{$filter}" do%>
+    <i class="bi bi-filter-left btn btn-info">
+      <% $filtera = $filtera ? false : true %>
+    </i>
+  <% end %>  
+</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div style="overflow-x: scroll;">
+  <% @status_lists.each do |status_list| %>
+    <ul>
+      <h4>
+        <%= status_list.title %>
+      </h4>
+      <ol>
+        <% if $filtera %>
+          <% filter = [created_at: :asc]%>
+        <% else %>
+          <% filter = [title: :asc] %>
+        <% end %>
+        
+        <% @to_dos.order(filter).each do |to_do| %>
+          <menu>
+            <% if to_do.status_list.title == status_list.title %>
+              <h5>
+                <%= to_do.title %>
+              </h5>
+              <p><%= "Descrição: \n #{to_do.description}" %> </p>
+              <div>
+                <%= link_to edit_to_do_status_left_url(status_list: status_list, to_do: to_do), method: "post" do%>
+                  <i class="bi bi-arrow-bar-left btn btn-info"></i>
+                <% end %>
 
-  <tbody>
-    <% @to_dos.each do |to_do| %>
-      <tr>
-        <td><%= link_to 'Show', to_do %></td>
-        <td><%= link_to 'Edit', edit_to_do_path(to_do) %></td>
-        <td><%= link_to 'Destroy', to_do, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+                <% if to_do.public_permission %>
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                  <label class="form-check-label" for="flexCheckChecked">
+                    Permissão Publica
+                  </label>
+                <% end %>
+
+                <%= link_to edit_to_do_status_right_path(status_list: status_list, to_do: to_do), method: "post" do%>
+                  <i class="bi bi-arrow-bar-right btn btn-info"></i>
+                <% end %>
+
+                <div>
+                  <%= link_to 'Edit', edit_to_do_path(status_list: status_list, to_do: to_do) , method: :post %>
+                  <%= link_to 'Show', to_do, class: "btn btn-success"%> 
+                  <%= link_to 'Destroy', to_do, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+                </div>
+              </div>
+            <% end %>
+          </menu>
+        <% end %>
+      </ol>
+      <%= link_to new_to_do_url(status_list: status_list, user: current_user), method: "post" do%></i>
+        <i class="bi bi-plus-circle btn btn-info"></i>
+      <% end %>
+    </ul>
+    <%# <%= link_to new_status_list_path(), method: "post" do</i>
+     ! Arrumar isso aq
+      <i class="bi bi-plus-circle btn btn-info"></i>
     <% end %>
-  </tbody>
-</table>
-
+  <% end %>
+</div>
 <br>
-
-<%= link_to 'New To Do', new_to_do_path %>
