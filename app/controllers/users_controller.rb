@@ -29,9 +29,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        Rails.logger.info "Usuario Criado ##{@user}"
         format.html { redirect_to user_url(@user), notice: "User was successfully created." }
         format.json { render :show, status: :created, location: @user }
-        LogLogin.create!(@user)
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -43,6 +43,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+        Rails.logger.info "Usuario Editado ##{params[:id]}"
         format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -57,6 +58,7 @@ class UsersController < ApplicationController
     @user.destroy
 
     respond_to do |format|
+      Rails.logger.info "Usuario Excluido #  #{params[:id]}"
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }
       format.json { head :no_content }
     end
