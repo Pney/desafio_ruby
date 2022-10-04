@@ -46,7 +46,7 @@
                 <% end %>
 
                 <div>
-                  <%= link_to 'Edit', edit_to_do_path(status_list: status_list, to_do: to_do) , method: :post %>
+                  <%= link_to 'Edit', edit_to_do_path(to_do) , method: :get %>
                   <%= link_to 'Show', to_do, class: "btn btn-success"%> 
                   <%= link_to 'Destroy', to_do, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
                 </div>
@@ -55,7 +55,7 @@
           </menu>
         <% end %>
       </ol>
-      <%= link_to new_to_do_url(status_list: status_list, user: current_user), method: "post" do%></i>
+      <%= link_to new_to_do_url(status_list: status_list, user: current_user), method: "get" do%></i>
         <i class="bi bi-plus-circle btn btn-info"></i>
       <% end %>
     </ul>

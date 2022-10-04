@@ -47,7 +47,7 @@ class ToDosController < ApplicationController
         redirect_to to_dos_index_path, notice: "Funcionou"
       end
     else
-      redirect_to to_dos_index_path, notice: "FAlhoooo"
+      redirect_to to_dos_index_path, notice: "Falho"
     end
   end
 
@@ -98,7 +98,7 @@ class ToDosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_to_do
-      @to_do = ToDo.find(params[:to_do]).id
+      @to_do = ToDo.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

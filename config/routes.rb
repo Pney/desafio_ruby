@@ -13,10 +13,10 @@ Rails.application.routes.draw do
 
   post     'to_dos_edit_status_right'    =>   'to_dos#edit_status_left',     as: :edit_to_do_status_left
   post     'to_dos_edit_status_left'     =>   'to_dos#edit_status_right',    as: :edit_to_do_status_right
-  post     'to_dos_edit'                 =>   'to_dos#edit',                 as: :edit_to_do
+  get      'to_dos_edit/:id'             =>   'to_dos#edit',                 as: :edit_to_do
   match    'to_dos_index'                =>   'to_dos#index',                via: [:get, :post]
   
-  post     'to_do/new'                   =>   'to_dos#new',                  as: :new_to_do
-  post     'status_list/new'                   =>   'status_list#new',       as: :new_status_list
+  get      'to_do/new'                   =>   'to_dos#new',                  as: :new_to_do
+  post     'status_list/new'             =>   'status_list#new',             as: :new_status_list
   root to: "session#index"
 end
