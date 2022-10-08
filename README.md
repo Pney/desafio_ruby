@@ -1,24 +1,9 @@
-# README
+Basicamente esse projeto tem o intuito de demonstrar diversas tecnologias, usando o Framework Ruby on Rails e PostgreSQL.
+Após ja estar com o projeto em seu PC, rode os seguintes comandos:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+bundler para instalar as gemas necessárias
+  yarn para instalar as bibliotecas necessárias
+  
+  rails dev:setup para criar o BD, fazer as Migrations, e preencher o sistema
+  
+  rails s para rodar o servidor como localhost
