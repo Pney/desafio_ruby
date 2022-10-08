@@ -26,7 +26,6 @@
     <%= form.text_field :email, class: "form-control" %>
   </div>
 
-  
   <% if current_user.nil? %>
     <div class="form-group">
       <%= form.label :phone %>
@@ -40,6 +39,9 @@
         </div>
       </fieldset>
   <% end %>
+
+  <%= form.label :phone %>
+  <%= form.check_box(:public_permission, {}, true, false) %>
 
   <div class="form-group">
     <%= form.label :cpf %>

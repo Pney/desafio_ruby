@@ -13,17 +13,17 @@ body{
     width: 400px;
     padding: 40px;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.5)
-    border-box;
-    box-shadow: 0 15px 25px rgba(255, 255, 255, 0.5);
+    background-color: rgb(16, 16, 16);
     border-radius: 12px;
 }
 
 .button-end-middle{
-    position: absolute;
+    display: flex;
+    position: relative;
     top: 70%;
     left: 50%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+    width: fit-content;
 }
 
 .login-box h2{

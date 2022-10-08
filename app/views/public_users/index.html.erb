@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Users</h1>
+<table class="table table-hover table-bordered border-secondary">
+  <thead class="table-dark">
+    <tr>
+      <th>Avatar</th>
+      <th>Name user</th>
+      <th>Profile</th>
+      <th>Numero de Visitas</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr style="text-align: center">
+        <td><%= image_tag user.image_profile, size: "70x70" %></td>
+        <td><%= user.name_user %></td>
+        <td><%= user.profile %></td>
+        <td><%= user.visits.count %> </td>
+        <td><%= link_to 'Show', public_user_path(user.token_public), class: "btn btn-info", style: "display: block" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @users, theme: 'bootstrap-5', nav_class: "center-kaminari", ul_class: "m-auto" %>

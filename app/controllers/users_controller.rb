@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
   include SessionHelper
-  before_action :set_user, only: %i[ show edit update destroy ]
-  before_action :block_access, except: %i[create new]
+  before_action :set_user,              only: %i[ show edit update destroy ]
+  before_action :block_access,          except: %i[create new]
   layout :choose_layout
 
   # GET /users or /users.json
   def index
+
     @users = User.all
+
   end
 
   # GET /users/1 or /users/1.json
@@ -20,12 +22,13 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = current_user
   end
 
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
+    @user.token_public = params[:authenticity_token]
+    @user.public_permission = true
 
     respond_to do |format|
       if @user.save
@@ -41,7 +44,9 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
+    byebug
     respond_to do |format|
+      byebug
       if @user.update(user_params)
         Rails.logger.info "Usuario Editado ##{params[:id]}"
         format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
@@ -72,10 +77,11 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name_user, :email, :phone, :cpf, :gender, :profile, :image_profile)
+      params.require(:user).permit(:name_user, :email, :phone, :cpf, :gender, :profile, :image_profile, :public_permission)
     end
 
     def choose_layout
       params[:action] == "new" || "create" ? "application" : "users_backoffice"
     end
+
 end

@@ -32,9 +32,12 @@ gem 'rails-i18n'
 gem 'faker'
 gem 'tty-spinner'
 gem 'cpf_cnpj'
+gem "validators"
 gem 'kaminari'
-gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
+gem 'bootstrap5-kaminari-views'
 gem 'jquery-rails'
+gem 'ahoy_matey'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

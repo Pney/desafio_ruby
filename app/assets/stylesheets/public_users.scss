@@ -1,0 +1,17 @@
+// Place all the styles related to the public_users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.button-relative-middle{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.page-link{
+    width: max-content;
+}
+
+.center-kaminari{
+    margin: 0 auto;
+}
