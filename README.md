@@ -4,6 +4,6 @@ Após ja estar com o projeto em seu PC, rode os seguintes comandos:
 bundler para instalar as gemas necessárias
   yarn para instalar as bibliotecas necessárias
   
-  rails dev:setup para criar o BD, fazer as Migrations, e preencher o sistema
+  rails dev:setup para criar e popular o BD(Por algum motivo a gem do Faker ta bugada e esta gerando CPF invalidos de vez em quando)
   
   rails s para rodar o servidor como localhost
