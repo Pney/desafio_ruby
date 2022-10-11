@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
-  get      'session/index'               =>   'session#index',               as: :session
-  post     'session/index'               =>   'session#create',              as: :session_sign_in
-  delete   'session/index'               =>   'session#logout',              as: :session_logout
+  get      'session/index'               =>   'sessions#index',              as: :session
+  post     'session/index'               =>   'sessions#create',             as: :session_sign_in
+  delete   'session/index'               =>   'sessions#logout',             as: :session_logout
   
-  get      'user_profile/index'          =>   'user_profile#index',          as: :user_profile
+  get      'user_profile/index'          =>   'users_profiles#index',        as: :user_profile
   
   post     'to_dos_edit_status_right'    =>   'to_dos#edit_status_left',     as: :edit_to_do_status_left
   post     'to_dos_edit_status_left'     =>   'to_dos#edit_status_right',    as: :edit_to_do_status_right
@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get      'public_users'                =>   'public_users#index',          as: :public_users
   get      'user/:token_public'          =>   'public_users#show',           as: :public_user
 
-  post     'status_list/new'             =>   'status_list#new',             as: :new_status_list
-  root to: 'session#index'
+  get     'status_list/new'              =>   'to_dos#new_status',           as: :new_status_list
+  post    'status_list/create'           =>   'to_dos#create_status',        as: :create_status_list
+  root to: 'sessions#index'
 end

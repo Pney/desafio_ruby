@@ -1,13 +1,15 @@
 class ToDosController < ApplicationController
   include SessionHelper
   include ToDosHelper
+  before_action :block_access
   before_action :set_to_do, only: %i[ show edit update destroy ]
+  before_action :set_status_list, only: %i[ show edit update destroy ]
   layout 'users_backoffice'
 
   # GET /to_dos or /to_dos.json
   def index
-    @to_dos = ToDo.all.where(user: current_user)
-    @status_lists = StatusList.all.where(user: current_user)
+    @to_dos = ToDo.where(user: current_user)
+    @status_lists = StatusList.where(user: current_user)
   end
 
   # GET /to_dos/1 or /to_dos/1.json
@@ -17,6 +19,10 @@ class ToDosController < ApplicationController
   # GET /to_dos/new
   def new
     @to_do = ToDo.new
+  end
+
+  def new_status
+    @status_list = StatusList.new
   end
 
   # GET /to_dos/1/edit
@@ -30,10 +36,10 @@ class ToDosController < ApplicationController
       if !(next_status.nil?)
         item.status_list = next_status
         item.save!
-        redirect_to to_dos_index_path, notice: "Funcionou"
+        redirect_to to_dos_index_path
       end
     else
-      redirect_to to_dos_index_path, notice: "FAlhoooo"
+      redirect_to to_dos_index_path
     end
   end
 
@@ -44,22 +50,34 @@ class ToDosController < ApplicationController
       if !(next_status.nil?)
         item.status_list = next_status
         item.save!
-        redirect_to to_dos_index_path, notice: "Funcionou"
+        redirect_to to_dos_index_path
       end
     else
-      redirect_to to_dos_index_path, notice: "Falho"
+      redirect_to to_dos_index_path
     end
   end
 
   # POST /to_dos or /to_dos.json
   def create
-    # ! Trash Code, to_do_params receber algo aq no Controller
-    # * Clean Code, to_do_params deve receber algo somente na view
     StatusList.find(to_do_params[:status_list_id])
     to_do_params[:user_id] =  current_user
 
     @to_do = ToDo.new(to_do_params)
 
+
+    respond_to do |format|
+      if @to_do.save
+        format.html { redirect_to to_dos_index_url(@to_do), notice: "To do was successfully created." }
+        format.json { render :show, status: :created, location: @to_do }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @to_do.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def create_status_list
+    @status_list = StatusList.new(status_list_params)
 
     respond_to do |format|
       if @to_do.save
@@ -98,6 +116,10 @@ class ToDosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_to_do
+      @to_do = ToDo.find(params[:id])
+    end
+
+    def set_status_list
       @to_do = ToDo.find(params[:id])
     end
 

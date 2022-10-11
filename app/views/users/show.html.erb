@@ -1,66 +1,66 @@
 <p id="notice"><%= notice %></p>
 <div class="col-lg-8" style="margin-left: auto; margin-right: auto;">
-  <div class="card mb-4">
+  <div class="card mb-4 bg-color">
+      <h2 class="text-center"><b><%= " #{t(:profile)}: #{current_user.name_user} "%></b></h2>
     <div class="rounded-top d-flex flex-row color" style=" height:200px;">
-      <h2 class><%= " Perfil: #{current_user.name_user} "%></h2>
       <div class="ms-4 mt-5 d-flex flex-column">
-        <%= image_tag current_user.image_profile, size: "180x180", class: "mt-4 mb-2 circle-image center-middle" %>
-        <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-dark button-middle-end", style: "width: 150px"%>
-        <%= link_to 'Back', user_profile_path, class: "btn btn-dark button-middle-start", style: "width: 150px"%>
+        <%= image_tag current_user.image_profile, size: "180x180", class: "mb-2 circle-image center-middle" %>
+        <%= link_to t(:edit), edit_user_path(@user), class: "btn btn-dark button-middle-end", style: "width: 150px"%>
+        <%= link_to t(:back), user_profile_path, class: "btn btn-dark button-middle-start", style: "width: 150px"%>
       </div>
     </div>
     <div class="card-body justify-content-center align-items-center">
       <div class="row" style="margin-top: 32px">
         <div class="col-sm-3">
-          <p class="mb-0">Nome Usuario</p>
+          <p class="mb-0 ms-5"><%= t(:name_user) %></p>
         </div>
         <div class="col-sm-9">
-          <p class="text-muted mb-0">  <%= current_user.name_user %> </p>
+          <p class="mb-0 text-center"> <i> <%= current_user.name_user %> </i> </p>
         </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-sm-3">
-          <p class="mb-0">Email</p>
+          <p class="mb-0 ms-5"><%= t(:email) %></p>
         </div>
         <div class="col-sm-9">
-          <p class="text-muted mb-0">   <%= current_user.email %>  </p>
+          <p class="mb-0 text-center"> <i> <%= current_user.email %> </i> </p>
         </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-sm-3">
-          <p class="mb-0">Fone</p>
+          <p class="mb-0 ms-5"><%= t(:phone) %></p>
         </div>
         <div class="col-sm-9">
-          <p class="text-muted mb-0"> <%= current_user.phone %> </p>
+          <p class="mb-0 text-center"> <i> <%= current_user.phone %> </i> </p>
         </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-sm-3">
-          <p class="mb-0">CPF</p>
+          <p class="mb-0 ms-5"><%= t(:cpf) %></p>
         </div>
         <div class="col-sm-9">
-          <p class="text-muted mb-0">  <%= current_user.cpf %> </p>
+          <p class="mb-0 text-center"> <i> <%= current_user.cpf %> </i> </p>
         </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-sm-3">
-          <p class="mb-0">Genero</p>
+          <p class="mb-0 ms-5"><%= t(:gender) %></p>
         </div>
         <div class="col-sm-9">
-          <p class="text-muted mb-0">   <%= current_user.gender %> </p>
+          <p class="mb-0 text-center"> <i> <%= current_user.gender %> </i> </p>
         </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-sm-3">
-          <p class="mb-0">Perfil</p>
+          <p class="mb-0 ms-5"><%= t(:profile) %></p>
         </div>
         <div class="col-sm-9">
-          <p class="text-muted mb-0">     <%= current_user.profile %> </p>
+          <p class="mb-0 text-center"> <i> <%= current_user.profile %> </i> </p>
         </div>
       </div>
     </div>

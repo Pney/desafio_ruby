@@ -8,7 +8,6 @@ namespace :dev do
       show_spinner("Criando_BD...")           {   %x(rails db:create)        }  
       show_spinner("Migrando_BD...")          {   %x(rails db:migrate)       } 
       show_spinner("Cadastrando o Usuário Padrão...")          {   %x(rails dev:add_default_user)       } 
-    #   show_spinner("Cadastrando o Administrador Padrão...")          {   %x(rails dev:add_default_admin)       } 
       show_spinner("Cadastrando Usuários Extras...")          {   %x(rails dev:add_extra_user)       } 
       show_spinner("Cadastrando Listas To_Do...")          {   %x(rails dev:add_to_do)       } 
       # %x(rails dev:add_mining_types)
@@ -28,13 +27,14 @@ namespace :dev do
   desc "Criando Usuário Padrão"
   task add_default_user: :environment do
     User.create!(
-      image_profile: "https://img.favpng.com/12/4/25/computer-icons-user-profile-png-favpng-10C0GAGPe8VAE2aMsjYNXJtne.jpg",
+      image_profile: Faker::Avatar.image(slug: "my-own-slug"),
       name_user: "Faker", 
       email: 'user@teste.com',
       phone: '45999999999',
-      cpf: '12017005908',
+      cpf: CPF.generate,
       gender: "Masculino",
-      profile: "Escolar"
+      profile: "Escolar",
+      public_permission: true
     )
     LogLogin.create!(user: User.last)
   end
@@ -52,13 +52,14 @@ namespace :dev do
   task add_extra_user: :environment do
     10.times do    
       User.create!(
-        image_profile: "https://img.favpng.com/12/4/25/computer-icons-user-profile-png-favpng-10C0GAGPe8VAE2aMsjYNXJtne.jpg",
+        image_profile: Faker::Avatar.image(),
         name_user: Faker::Name.name,
         email: Faker::Internet.email,
         phone: Faker::PhoneNumber.cell_phone_in_e164,
         cpf: CPF.generate,
         gender: Faker::Gender.type,
-        profile: ("Guest")
+        profile: ("Guest"),
+        public_permission: true
       )
       LogLogin.create!(user: User.last)
     end
@@ -81,29 +82,34 @@ namespace :dev do
   desc "Criando To_Do Extras"
   task add_to_do: :environment do
     # byebug
-    StatusList.create!(title: "Aberto",user: User.first)
-    StatusList.create!(
-      title: "Em Progresso",
-      user: User.first
-    )
-    StatusList.create!(
-      title: "Em Impedimento",
-      user: User.first
-    )
-    StatusList.create!(
-      title: "Pronto",
-      user: User.first
-    )
-    a = StatusList.last
-    b = User.first
+    User.all.each do |user|
+      
+      StatusList.create!(
+        title: "Aberto",
+        user: user
+      )
+      StatusList.create!(
+        title: "Em Progresso",
+        user: user
+      )
+      StatusList.create!(
+        title: "Em Impedimento",
+        user: user
+      )
+      StatusList.create!(
+        title: "Pronto",
+        user: user
+      )
+    end
+
     ToDo.create!(
       uni_code: "AAAAAA",
       title: "Criação de um Botão",
       description: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
       category: "Front",
-      status_list: a,
+      status_list: StatusList.last,
       public_permission: true,
-      user: b
+      user: User.first
     )
     ToDo.create!(
       uni_code: Faker::Lorem.characters(number: 6),

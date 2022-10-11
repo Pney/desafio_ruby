@@ -2,18 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body{
-    background-color: black;
+.login-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.login-box{
-    position: absolute;
+.login-box-child{
+    display: grid;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
     width: 400px;
     padding: 40px;
-    transform: translate(-50%, -50%);
-    background-color: rgb(16, 16, 16);
+    color: #fff;
+    background-color: #2D3F51;
     border-radius: 12px;
 }
 
@@ -27,8 +31,8 @@ body{
 }
 
 .login-box h2{
-    margin: 0 0 30px;
-    padding: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 5%;
     color: #fff;
     text-align: center;
 }

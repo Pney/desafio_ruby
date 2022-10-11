@@ -20,6 +20,24 @@
  */
 
 
+/*
+    * Paleta de cores
+    Azul forte                      #245F78  
+    Azul quase ciano                #51B6AB
+    Verde fraco meio azul           #8CC79D
+    Verdin um pouco mais forte      #C1CA83
+    Cor Pastel                      #F7E3A4
+    Azul mais forte                 #2D3F51
+    Branco                          #ECF4F9
+    Roxo                            #3C2E71
+    cinza_meio_pastel               #C2BD8E
+*/
+
+ body{
+    background-color: #C2BD8E !important;
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+}
 
 .btn{
     margin-top: 8px;
@@ -29,12 +47,15 @@
 }
 
 .navbar-item{
-    
     margin-left: 11px;
     margin-right: 11px;
 }
 
-.container {
+.navbar-brand{
+    color: #fff !important;
+}
+
+.box-cont {
     width: 300px !important;
     height: 300px !important;
     background: #007bff;
@@ -102,10 +123,7 @@
     background-clip: border-box;
 }
 
-h2{
-    position: absolute;
-    top: 5%;
-    left: 50%;
-    transform: translate(-50%, -50%)
+.bg-color{
+    background-color: #2D3F51 !important;
 }
 

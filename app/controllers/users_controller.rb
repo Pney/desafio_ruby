@@ -1,14 +1,12 @@
 class UsersController < ApplicationController
   include SessionHelper
-  before_action :set_user,              only: %i[ show edit update destroy ]
-  before_action :block_access,          except: %i[create new]
+  before_action :block_access, except: %i[create new]
+  before_action :set_user, only: %i[ show edit update destroy ]
   layout :choose_layout
 
   # GET /users or /users.json
   def index
-
     @users = User.all
-
   end
 
   # GET /users/1 or /users/1.json
@@ -44,9 +42,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
-    byebug
     respond_to do |format|
-      byebug
       if @user.update(user_params)
         Rails.logger.info "Usuario Editado ##{params[:id]}"
         format.html { redirect_to user_url(@user), notice: "User was successfully updated." }

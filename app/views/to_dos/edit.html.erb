@@ -1,6 +1,9 @@
-<h1>Editing To Do</h1>
+<h1 class="d-flex align-items-center flex-column"> <b> <%= t(:edit_to_do)%> </b> </h1>
 
-<%= render 'form', to_do: @to_do %>
-
-<%= link_to 'Show', @to_do %> |
-<%= link_to 'Back', to_dos_index_path %>
+<div style="color: white">
+    <%= render 'form', to_do: @to_do %>
+    <div class="d-flex justify-content-center">
+        <%= link_to t(:show), @to_do, class: "btn btn-primary" %>
+        <%= link_to t(:back), to_dos_index_path, class: "btn btn-warning" %>
+    </div>
+</div>

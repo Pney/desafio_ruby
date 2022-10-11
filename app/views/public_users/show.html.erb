@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 <div class="col-lg-8" style="margin-left: auto; margin-right: auto;">
   <div class="card mb-4">
-    <div class="rounded-top d-flex flex-row color" style=" height:200px;">
-      <h2 class><%= " Perfil: #{@user.name_user} "%></h2>
+    <div class="d-flex align-items-center flex-column" style=" height:200px; padding: 10px">
+      <h2> <b> <%= " Perfil: #{@user.name_user} "%> </b> </h2>
       <div class="ms-4 mt-5 d-flex flex-column">
         <%= image_tag @user.image_profile, size: "180x180", class: "mt-4 mb-2 circle-image center-middle" %>
-        <%= link_to 'Back', public_users_path, class: "btn btn-dark button-middle-start", style: "width: 150px"%>
+        <%= link_to t(:back), public_users_path, class: "btn btn-dark button-middle-start", style: "width: 150px"%>
       </div>
     </div>
     <div class="card-body justify-content-center align-items-center">
       <div class="row" style="margin-top: 32px">
         <div class="col-sm-3">
-          <p class="mb-0">Nome Usuario</p>
+          <p class="mb-0"> <%= t(:name_user) %> </p>
         </div>
         <div class="col-sm-9">
           <p class="text-muted mb-0">  <%= @user.name_user %> </p>
@@ -20,7 +20,7 @@
       <hr>
       <div class="row">
         <div class="col-sm-3">
-          <p class="mb-0">Email</p>
+          <p class="mb-0"><%= t(:email) %> </p>
         </div>
         <div class="col-sm-9">
           <p class="text-muted mb-0">   <%= @user.email %>  </p>
@@ -30,7 +30,7 @@
       <% if @user.public_permission %>
         <div class="row">
           <div class="col-sm-3">
-            <p class="mb-0">Fone</p>
+            <p class="mb-0"><%= t(:phone) %> </p>
           </div>
           <div class="col-sm-9">
             <p class="text-muted mb-0"> <%= @user.phone %> </p>
@@ -40,7 +40,7 @@
       <% end %>
       <div class="row">
         <div class="col-sm-3">
-          <p class="mb-0">CPF</p>
+          <p class="mb-0"><%= t(:cpf) %></p>
         </div>
         <div class="col-sm-9">
           <p class="text-muted mb-0">  <%= @user.cpf %> </p>

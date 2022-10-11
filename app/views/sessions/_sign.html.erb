@@ -1,0 +1,12 @@
+<%= form_with model: @user, local: true do |form| %>
+  <h2> <b><%= t(:login) %></b> </h2>
+  <div>
+    <%= form.label t(:session_fone) %>
+    <%= form.text_field :phone, class: "form-control"%>
+  </div>
+
+  
+  <div class="actions">
+    <%= form.submit t(:login), class: "btn btn-success"%>
+  </div>
+<% end %>

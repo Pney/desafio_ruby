@@ -1,0 +1,7 @@
+<div class="container w-50 h-50 center bg-color" >
+    <%= link_to t(:profile), user_path(current_user), class: "btn col-6 btn-dark " %>
+    <%= link_to t(:edit_data), edit_user_path(current_user), class: "btn col-6 btn-dark" %>
+    <%= link_to t(:list_to_do), to_dos_index_path, class: "btn col-6 btn-dark" %>
+    <%= link_to t(:user_screen), public_users_path, class: "btn col-6 btn-dark" %>
+</div>
+

@@ -4,25 +4,25 @@
     <div class="card-body justify-content-center align-items-center">
       <div class="row" style="margin-top: 32px">
         <div class="col-sm-3">
-          <p class="mb-0">Nome do Usuario</p>
+          <p class="mb-0"><%= t(:name_user)%></p>
         </div>
         <div class="col-sm-9">
-          <p class="text-muted mb-0">  <%= @to_do.user.name_user %> </p>
+          <p class="text-muted mb-0"> <%= @to_do.user.name_user %> </p>
         </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-sm-3">
-          <p class="mb-0">Titulo</p>
+          <p class="mb-0"><%= t(:title_to_do)%></p>
         </div>
         <div class="col-sm-9">
-          <p class="text-muted mb-0">   <%= @to_do.title %>  </p>
+          <p class="text-muted mb-0"> <%= @to_do.title %>  </p>
         </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-sm-3">
-          <p class="mb-0">Descrição</p>
+          <p class="mb-0"><%= t(:description_to_do)%></p>
         </div>
         <div class="col-sm-9">
           <p class="text-muted mb-0"> <%= @to_do.description %> </p>
@@ -31,34 +31,34 @@
       <hr>
       <div class="row">
         <div class="col-sm-3">
-          <p class="mb-0">Categoria</p>
+          <p class="mb-0"><%= t(:category_to_do)%></p>
         </div>
         <div class="col-sm-9">
-          <p class="text-muted mb-0">  <%= @to_do.category %> </p>
+          <p class="text-muted mb-0"> <%= @to_do.category %> </p>
         </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-sm-3">
-          <p class="mb-0">Status</p>
+          <p class="mb-0"><%= t(:status_list)%></p>
         </div>
         <div class="col-sm-9">
-          <p class="text-muted mb-0">   <%= @to_do.status_list.title %> </p>
+          <p class="text-muted mb-0"> <%= @to_do.status_list.title %> </p>
         </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-sm-3">
-          <p class="mb-0">Permissão Publica</p>
+          <p class="mb-0"><%= t(:public_permission_to_do)%></p>
         </div>
         <div class="col-sm-9">
-          <p class="text-muted mb-0">     <%= @to_do.public_permission %> </p>
+          <p class="text-muted mb-0"> <%= @to_do.public_permission %> </p>
         </div>
       </div>
     </div>
   </div>
 </div>
 
+<div class="d-flex justify-content-center">
+  <%= link_to t(:back), to_dos_index_path,  class: "btn btn-dark", style: "width: 30%" %>
 </div>
-
-<%= link_to 'Back', to_dos_index_path,  class: "btn btn-dark button-end-middle-80", style: "width: 30%" %>

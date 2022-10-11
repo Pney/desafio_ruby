@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_07_235839) do
+ActiveRecord::Schema.define(version: 2022_10_07_172545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,8 +99,6 @@ ActiveRecord::Schema.define(version: 2022_10_07_235839) do
     t.string "token_public"
     t.string "token_private"
     t.boolean "public_permission"
-    t.bigint "ahoy_visit_id"
-    t.index ["ahoy_visit_id"], name: "index_users_on_ahoy_visit_id"
     t.index ["token_private"], name: "index_users_on_token_private", unique: true
     t.index ["token_public"], name: "index_users_on_token_public", unique: true
   end

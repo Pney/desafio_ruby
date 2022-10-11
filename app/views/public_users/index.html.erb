@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
-<table class="table table-hover table-bordered border-secondary">
+<h1 class="d-flex align-items-center flex-column"> <b> <%= t(:user_screen) %> </b> </h1>
+<table class="table table-bordered border-secondary">
   <thead class="table-dark">
     <tr>
-      <th>Avatar</th>
-      <th>Name user</th>
-      <th>Profile</th>
-      <th>Numero de Visitas</th>
+      <th> <%= t(:image_profile) %> </th>
+      <th> <%= t(:name_user) %> </th>
+      <th> <%= t(:profile) %> </th>
+      <th> <%= t(:visits_user) %> </th>
       <th colspan="1"></th>
     </tr>
   </thead>
@@ -19,7 +19,7 @@
         <td><%= user.name_user %></td>
         <td><%= user.profile %></td>
         <td><%= user.visits.count %> </td>
-        <td><%= link_to 'Show', public_user_path(user.token_public), class: "btn btn-info", style: "display: block" %></td>
+        <td><%= link_to t(:show), public_user_path(user.token_public), class: "btn btn-info", style: "display: block" %></td>
       </tr>
     <% end %>
   </tbody>

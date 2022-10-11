@@ -1,0 +1,13 @@
+<% if notice %>
+  <div class="alert alert-primary" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
+
+<div class="login-box">
+  <div class="login-box-child">
+  <%= render 'sign' %>
+  <%= link_to t(:user_not_found), new_user_path, class:"btn btn-primary button-end-middle" %>
+  <%= link_to t(:user_guest), public_users_path, class:"btn btn-primary button-end-middle" %>
+  </div>
+</div>

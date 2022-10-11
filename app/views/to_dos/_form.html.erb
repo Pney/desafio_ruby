@@ -10,46 +10,46 @@
       </ul>
     </div>
   <% end %>
+  <div class="d-flex align-items-center flex-column bg-color">
+    <div class="w-50 mb-3 form-group">
+      <%= form.label t(:uni_code) %>
+      <%= form.text_field :uni_code, class: "form-control" %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :uni_code %>
-    <%= form.text_field :uni_code, class: "form-control" %>
+    <div class="w-50 mb-3 form-group">
+      <%= form.label t(:title_to_do) %>
+      <%= form.text_field :title, class: "form-control"%>
+    </div>
+
+    <div class="w-50 mb-3 form-group">
+      <%= form.label t(:description_to_do) %>
+      <%= form.text_field :description, class: "form-control" %>
+    </div>  
+
+    <div class="d-flex align-content-center">
+      <div class="w-50 mb-3 form-group">
+        <%= form.label t(:category_to_do) %>
+        <%= form.select :category, ['Front', 'Back', 'Support'], class: "form-control" %>
+      </div>
+      
+      <div class="w-50 mb-3 form-check form-switch">
+        <%= form.label t(:public_permission_to_do), class: "form-check-label" %>
+        <%= form.check_box(:public_permission, { class: "form-check-input" }, true, false) %>
+      </div>
+    </div>
+
+    <div class="w-50 mb-3 form-group">
+      <% if params[:action] == "new" %>
+        <%  status = find_status(params[:status_list]) %>
+        <%= form.hidden_field :user_id, value: current_user.id %>
+        <%= form.hidden_field :status_list_id, value: status.id %>
+      <% end %>
+    </div>
+    <div class="actions">
+      <%= form.submit nil, class: "btn btn-success"%>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: "form-control"%>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :description %>
-    <%= form.text_field :description, class: "form-control" %>
-  </div>  
-
-  <div class="form-group">
-    <%= form.label :category %>
-    <%= form.select :category, ['Front', 'Back', 'Support'], class: "form-control" %>
-  </div>
   
-
-  <div class="form-group">
-    <%= form.label :public_permission %>
-    <%= form.check_box(:public_permission) %>
-  </div>
-
-  <div class="form-group">
-    <% if params[:action] == "new" %>
-      <%  status = find_status(params[:status_list]) %>
-      <%= form.hidden_field :user_id, value: current_user.id %>
-      <%= form.hidden_field :status_list_id, value: status.id %>
-    <% end %>
-  </div>
-
-
-  
-  <div class="actions">
-
-    <%= form.submit nil, class: "btn btn-success"%>
-  </div>
 <% end %>
 

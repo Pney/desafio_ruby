@@ -3,9 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-body{
-    background-color: rgb(206, 191, 191) !important;
-}
+
 
 menu{
     background-color: #161616;
@@ -13,10 +11,12 @@ menu{
     color: azure;
     width: 300px;
     text-align: center;
-    padding: 0px;
+    padding: 10px;
+    padding-inline-start: 0px;
+    margin-top: 10px;
 }
 
-ul{
+menu ul{
     width: 150px;
     display: table-cell;
 }
@@ -25,8 +25,8 @@ ul{
     display: block;
 }
 
-ol{
-    padding: 0px;
+menu ol{
+    padding: 0px !important;
     width: 300px;
 }
 
@@ -57,13 +57,12 @@ h4{
 }
 
 .container {
-    width: 250px !important;
-    height: 350px !important;
     padding: 10px;
     color: white;
     background: #161616;
     text-align: center;
-    border: 1px solid rgba(0, 0, 0, .05);
+    border-radius: 8%;
+    border: 7px solid rgb(0, 0, 0);
 }
 
 .container-item {

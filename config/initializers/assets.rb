@@ -23,5 +23,6 @@ session.scss users.scss)
 # Rails.application.config.assets.precompile += %w( undraw_projections_re_ulc6.svg)
 
 #vendor/assets
-# Rails.application.config.assets.precompile += %w( undraw_projections_re_ulc6.svg)
+Rails.application.config.assets.precompile += %w( brazil-icon.png usa-flag-round-circle-icon.svg )
+
 

@@ -10,56 +10,62 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="form-group">
-    <%= form.label :image_profile %>
-    <%= form.text_field :image_profile, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :name_user %>
-    <%= form.text_field :name_user, class: "form-control"%>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :email %>
-    <%= form.text_field :email, class: "form-control" %>
-  </div>
-
-  <% if current_user.nil? %>
-    <div class="form-group">
-      <%= form.label :phone %>
-      <%= form.text_field :phone, class: "form-control" %>
+  <div class="d-flex align-items-center flex-column bg-color">
+    <div class="w-50 mb-3 form-group">
+      <%= form.label t(:image_profile) %>
+      <%= form.text_field :image_profile, class: "form-control" %>
     </div>
+
+    <div class="w-50 mb-3 form-group">
+      <%= form.label t(:name_user) %>
+      <%= form.text_field :name_user, class: "form-control"%>
+    </div>
+
+    <div class="w-50 mb-3 form-group">
+      <%= form.label t(:email) %>
+      <%= form.text_field :email, class: "form-control" %>
+    </div>
+
+    <% if current_user.nil? %>
+      <div class="w-50 mb-3 form-group">
+        <%= form.label t(:phone) %>
+        <%= form.text_field :phone, class: "form-control" %>
+      </div>
     <% else %>
-      <fieldset disabled>
-        <div class="form-group" id="disabledTextInput">
-          <%= form.label :phone %>
-          <%= form.text_field :phone, class: "form-control" %>
-        </div>
-      </fieldset>
-  <% end %>
+      <div class="w-50 mb-3 form-group">
+        <fieldset disabled>
+          <div id="disabledTextInput">
+            <%= form.label t(:phone) %>
+            <%= form.text_field :phone, class: "form-control" %>
+          </div>
+        </fieldset>
+      </div>
+    <% end %>
 
-  <%= form.label :phone %>
-  <%= form.check_box(:public_permission, {}, true, false) %>
+    <div class="w-50 mb-3 form-check form-switch">
+      <%= form.label t(:public_permission), class: "form-check-label" %>
+      <%= form.check_box(:public_permission, { class: "form-check-input" }, true, false) %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :cpf %>
-    <%= form.text_field :cpf, class: "form-control" %>
-  </div>
+    <div class="w-50 mb-3 form-group">
+      <%= form.label t(:cpf) %>
+      <%= form.text_field :cpf, class: "form-control" %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :gender %>
-    <%= form.select :gender, ["Masculino", "Feminino", "Outros"], class: "form-control" %>
-  </div>
+    <div class="d-flex align-content-center">
+      <div class="w-50 mb-3 form-group ">
+        <%= form.label t(:gender) %>
+        <%= form.select :gender, ["Masculino", "Feminino", "Outros"], class: "form-control" %>
+      </div>
 
-  <div class="form-group">
-    <%= form.label :profile %>
-    <%= form.select :profile, ["Guest", "Back", "Front"], class: "form-control" %>
-  </div>
-
-
-  <div class="actions">
-    <%= form.submit nil, class: "btn btn-success"%>
+      <div class="w-50 mb-3 form-group">
+        <%= form.label t(:profile) %>
+        <%= form.select :profile, ["Guest", "Back", "Front"], class: "form-control" %>
+      </div>
+    </div>
+    
+    <div class="actions">
+      <%= form.submit nil, class: "btn btn-success"%>
+    </div>
   </div>
 <% end %>
