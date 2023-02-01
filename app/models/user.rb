@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-    belongs_to :to_do, optional: true
-    belongs_to :log_login, optional: true
-    belongs_to :status_list, optional: true
+    has_many :to_do
+    has_many :log_login
+    has_many :status_list
     has_many :visits, class_name: "Ahoy::Visit"
     require "cpf_cnpj"
 

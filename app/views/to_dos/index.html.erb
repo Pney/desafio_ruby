@@ -22,37 +22,35 @@
           <% filter = [title: :asc] %>
         <% end %>
         
-        <% @to_dos.order(filter).each do |to_do| %>
-          <% if to_do.status_list.title == status_list.title %>
-            <menu>
-              <h5>
-                <%= to_do.title %>
-              </h5>
-              <p><%= "#{t(:description)}: \n #{to_do.description}" %> </p>
+        <% @to_dos.where(status_list_id: status_list.id).order(filter).each do |to_do| %>
+          <menu>
+            <h5>
+              <%= to_do.title %>
+            </h5>
+            <p><%= "#{t(:description)}: \n #{to_do.description}" %> </p>
+            <div>
+              <%= link_to edit_to_do_status_left_url(status_list: status_list, to_do: to_do), method: "post" do%>
+                <i class="bi bi-arrow-bar-left btn btn-info"></i>
+              <% end %>
+              
+              <%= link_to edit_to_do_status_right_path(status_list: status_list, to_do: to_do), method: "post" do%>
+                <i class="bi bi-arrow-bar-right btn btn-info"></i>
+              <% end %>
               <div>
-                <%= link_to edit_to_do_status_left_url(status_list: status_list, to_do: to_do), method: "post" do%>
-                  <i class="bi bi-arrow-bar-left btn btn-info"></i>
+                <% if to_do.public_permission %>
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                  <label class="form-check-label" for="flexCheckChecked">
+                    <%= t(:public_permission_to_do) %>
+                  </label>
                 <% end %>
-                
-                <%= link_to edit_to_do_status_right_path(status_list: status_list, to_do: to_do), method: "post" do%>
-                  <i class="bi bi-arrow-bar-right btn btn-info"></i>
-                <% end %>
-                <div>
-                  <% if to_do.public_permission %>
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                    <label class="form-check-label" for="flexCheckChecked">
-                      <%= t(:public_permission_to_do) %>
-                    </label>
-                  <% end %>
-                <div>
-                <div>
-                  <%= link_to t(:edit), edit_to_do_path(to_do), class: "btn btn-secondary"%>
-                  <%= link_to t(:show), to_do, class: "btn btn-success"%> 
-                  <%= link_to t(:destroy), to_do, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-                </div>
               </div>
-            </menu>
-          <% end %>
+              <div>
+                <%= link_to t(:edit), edit_to_do_path(to_do), class: "btn btn-secondary"%>
+                <%= link_to t(:show), to_do, class: "btn btn-success"%> 
+                <%= link_to t(:destroy), to_do, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+              </div>
+            </div>
+          </menu>
         <% end %>
       </ol>
       <div>
